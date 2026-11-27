@@ -23,8 +23,8 @@ Requirements:
 
 From the repo root:
 
-```
-build.bat
+```ps1
+.\build.bat
 build\piano.exe
 ```
 
