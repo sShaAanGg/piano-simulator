@@ -77,6 +77,24 @@ Verification helps, but never gets in the way of building the fun parts:
    2. Note blocks fall from the top; when one reaches the keyboard, it's time to press that key
    3. (Optional) Scoring: compare actual key-press times to note times and rate accuracy, like a rhythm game
 
+## MVP (minimum viable product)
+
+**Scope**: play one octave with the computer keyboard; notes fade out on release; 12 rectangles on screen light up when pressed. Roughly milestones 1–3 plus a bare-bones slice of milestone 5.
+
+**Out of scope for the MVP**: sustain pedal, nice visuals and particles, MIDI and practice mode, writing samples to the audio stream yourself.
+
+**What to learn** (raylib's `Sound` already handles mixing and the audio thread, so none of PCM, ring buffers or threads is needed yet):
+
+| # | Topic | Concretely |
+|---|---|---|
+| 1 | raylib game loop | `InitWindow` → `while (!WindowShouldClose())` → `BeginDrawing` / `EndDrawing` |
+| 2 | Keyboard input | `IsKeyPressed` (just pressed), `IsKeyReleased` (just released) |
+| 3 | Playing sounds | `InitAudioDevice`, `LoadSound`, `PlaySound`, `SetSoundVolume`, `StopSound` |
+| 4 | Fade-out | After release, lower the volume a bit every frame, using `GetFrameTime()` to know how much; stop at 0 |
+| 5 | The 12 keys of an octave | Where the black keys go; find a CC0 sample set with a recording for every key |
+
+**Known MVP trade-off**: the volume changes once per frame (about every 16 ms at 60 FPS), so the fade is a staircase rather than smooth. Accept it for the MVP; revisit if it clicks.
+
 ## Things to watch out for
 
 - **Choosing a sample library**: many free piano sample libraries record only every few keys, and the notes in between have to be pitch-shifted, which brings the frequency math back. Pick a library that records every key, or start with one octave and one WAV per key. **Because the project is open source and the files are committed to the repo, the sample license must allow redistribution** (for example CC0 or CC-BY), and the source and license must be credited in the repo.

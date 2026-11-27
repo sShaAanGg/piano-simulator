@@ -16,12 +16,19 @@
 
 ## 建置
 
-> 還沒有程式碼，建置方式會在里程碑 1 完成後補上。
-
-預計環境：
+需要：
 
 - Windows 11
-- [raylib 官方 Windows 安裝包](https://raysan5.itch.io/raylib)（內附 w64devkit 編譯器）
+- [raylib 官方 Windows 安裝包](https://raysan5.itch.io/raylib)（內附 w64devkit 編譯器），裝在 `C:\raylib`。裝在別的地方的話，請設定 `RAYLIB_DIR`。
+
+在 repo 根目錄執行：
+
+```
+build.bat
+build\piano.exe
+```
+
+要在 repo 根目錄執行，因為取樣是從 `samples/` 讀取的。
 
 ## 授權
 

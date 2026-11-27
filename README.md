@@ -16,12 +16,19 @@ Play the piano with your computer keyboard. Written from scratch in C with [rayl
 
 ## Building
 
-> There is no code yet. Build instructions will be added after milestone 1.
-
-Planned environment:
+Requirements:
 
 - Windows 11
-- [raylib Windows installer](https://raysan5.itch.io/raylib) (includes the w64devkit compiler)
+- [raylib Windows installer](https://raysan5.itch.io/raylib) (includes the w64devkit compiler), installed at `C:\raylib`. If it's somewhere else, set `RAYLIB_DIR`.
+
+From the repo root:
+
+```
+build.bat
+build\piano.exe
+```
+
+Run it from the repo root, because samples are loaded from `samples/`.
 
 ## License
 
